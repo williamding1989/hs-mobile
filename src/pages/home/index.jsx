@@ -47,6 +47,8 @@ import video1 from '../../assets/video1.mp4'
 import video2 from '../../assets/video2.mp4'
 import tomato from '../../assets/tomato.png'
 import seefood from '../../assets/seefood.png'
+import cassia from '../../assets/cassia.png'
+import poster2 from '../../assets/poster2.png'
 
 const Home = () => {
   const _step1 = useRef(null)
@@ -55,10 +57,13 @@ const Home = () => {
   const block = useRef(null)
   const _tomato = useRef(null)
   const _seefood = useRef(null)
+
   const abouths__prev = useRef(null)
   const abouths__next = useRef(null)
-  const fancy__prev = useRef(null)
-  const fancy__next = useRef(null)
+  const fancy__prev1 = useRef(null)
+  const fancy__prev2 = useRef(null)
+  const fancy__next1 = useRef(null)
+  const fancy__next2 = useRef(null)
 
   useEffect(() => {
     // 创建 IntersectionObserver 实例
@@ -77,30 +82,38 @@ const Home = () => {
     })
 
     // 观察目标元素
-    if (_step1.current) observer.observe(_step1.current)
-    if (_step2.current) observer.observe(_step2.current)
-    if (_step3.current) observer.observe(_step3.current)
-    if (block.current) observer.observe(block.current)
-    if (_tomato.current) observer.observe(_tomato.current)
-    if (_seefood.current) observer.observe(_seefood.current)
+    observe(observer, _step1)
+    observe(observer, _step2)
+    observe(observer, _step3)
+    observe(observer, block)
+    observe(observer, _tomato)
+    observe(observer, _seefood)
 
-    // 清理工作
     return () => {
-      if (_step1.current) observer.unobserve(_step1.current)
-      if (_step2.current) observer.unobserve(_step2.current)
-      if (_step3.current) observer.unobserve(_step3.current)
-      if (block.current) observer.observe(block.current)
-      if (_tomato.current) observer.unobserve(_tomato.current)
-      if (_seefood.current) observer.observe(_seefood.current)
+      unobserve(observer, _step1)
+      unobserve(observer, _step2)
+      unobserve(observer, _step3)
+      unobserve(observer, block)
+      unobserve(observer, _tomato)
+      unobserve(observer, _seefood)
     }
   }, [])
 
+  // 观察
+  const observe = (observer, target) => {
+    if (target.current) observer.observe(target.current)
+  }
+
+  // 取消观察
+  const unobserve = (observer, target) => {
+    if (target.current) observer.unobserve(target.current)
+  }
+
   // 返回顶部
-  const backtotop = () => {
+  const backtotop = () =>
     window.scrollTo({
       top: 0,
     })
-  }
 
   return (
     <div className="Home">
@@ -179,17 +192,17 @@ const Home = () => {
           <div className="fancy__swipercontainer">
             <HsSwiper
               slides={[swiper1, swiper1, swiper1]}
-              prevRef={fancy__prev}
-              nextRef={fancy__next}
+              prevRef={fancy__prev1}
+              nextRef={fancy__next1}
             ></HsSwiper>
             <img
               src={swiper_left1}
-              ref={fancy__prev}
+              ref={fancy__prev1}
               className="fancy__prev"
             ></img>
             <img
               src={swiper_right1}
-              ref={fancy__next}
+              ref={fancy__next1}
               className="fancy__next"
             ></img>
           </div>
@@ -201,17 +214,17 @@ const Home = () => {
           <div className="fancy__swipercontainer">
             <HsSwiper
               slides={[swiper1, swiper1, swiper1]}
-              prevRef={fancy__prev}
-              nextRef={fancy__next}
+              prevRef={fancy__prev2}
+              nextRef={fancy__next2}
             ></HsSwiper>
             <img
               src={swiper_left1}
-              ref={fancy__prev}
+              ref={fancy__prev2}
               className="fancy__prev"
             ></img>
             <img
               src={swiper_right1}
-              ref={fancy__next}
+              ref={fancy__next2}
               className="fancy__next"
             ></img>
           </div>
@@ -233,6 +246,7 @@ const Home = () => {
         <img src={classroom__titlebg2} className="classroom__titlebg2" />
         <div className="classroom__title">日式咖喱课堂</div>
         <img src={bee2} className="classroom__bee" />
+        <img src={cassia} className="classroom__cassia" />
         <img src={coriander} className="classroom__coriander" />
         <img src={xianggu} className="classroom__xianggu" />
         <div className="classroom__content" ref={block}>
@@ -251,11 +265,9 @@ const Home = () => {
             <div className="content__tips">让我们来看看独属于咖喱的魅力吧</div>
           </div>
         </div>
-
         <div className="classroom__ricewrap">
           <img src={rice} className="classroom__rice" />
         </div>
-
         <div className="btn classroom__btn">
           <img src={btn__bg1}></img>
           <img src={icon_right} className="classroom__icon"></img>
@@ -284,7 +296,7 @@ const Home = () => {
         <div className="aboutbmd__brand">
           <div className="brand__title">百梦多品牌宣传片</div>
           <div className="brand__videocontainer">
-            <HsVideo src={video2} poster={swiper1}></HsVideo>
+            <HsVideo src={video2} poster={poster2}></HsVideo>
           </div>
         </div>
       </div>

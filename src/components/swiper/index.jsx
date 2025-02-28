@@ -2,7 +2,7 @@ import { Navigation, Autoplay } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 import 'swiper/less/navigation'
-import { useEffect, forwardRef } from 'react'
+import { useEffect, useRef } from 'react'
 
 /**
  * 轮播组件
@@ -11,19 +11,40 @@ import { useEffect, forwardRef } from 'react'
  * @param {nextRef} nextRef 后箭头
  *
  */
-const HsSwiper = forwardRef(({ slides, prevRef, nextRef }, ref) => {
+const HsSwiper = ({ slides, prevRef, nextRef }) => {
+  const swiperRef = useRef(null)
+
+  useEffect(() => {
+    if (
+      swiperRef.current &&
+      swiperRef.current.swiper &&
+      prevRef.current &&
+      nextRef.current
+    ) {
+      const swiper = swiperRef.current.swiper
+
+      // 绑定导航按钮
+      swiper.params.navigation.prevEl = prevRef.current
+      swiper.params.navigation.nextEl = nextRef.current
+
+      // 重新初始化导航模块
+      swiper.navigation.destroy() // 销毁旧的导航模块
+      swiper.navigation.init() // 重新初始化导航模块
+      swiper.navigation.update() // 更新导航按钮状态
+
+      // 更新 Swiper
+      swiper.update()
+    }
+  }, [prevRef, nextRef])
+
   return (
     <>
       {/* 轮播实体  */}
       <Swiper
-        ref={ref}
+        ref={swiperRef}
         modules={[Navigation, Autoplay]}
         spaceBetween={0}
         slidesPerView={1}
-        navigation={{
-          prevEl: prevRef.current,
-          nextEl: nextRef.current,
-        }}
         loop={true}
         autoplay={{
           delay: 2000,
@@ -40,6 +61,6 @@ const HsSwiper = forwardRef(({ slides, prevRef, nextRef }, ref) => {
       </Swiper>
     </>
   )
-})
+}
 
 export default HsSwiper
