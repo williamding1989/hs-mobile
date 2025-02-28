@@ -1,8 +1,9 @@
+// 模块
 import { useEffect, useRef, useState } from 'react'
 import { HsSwiper, HsVideo } from '../../components/index.jsx'
 import './index.less'
 
-// 静态资源
+// 资源
 import banner__bg from '../../assets/banner_bg.png'
 import curryrice from '../../assets/curryrice.png'
 import logo from '../../assets/logo.png'
@@ -39,17 +40,25 @@ import xianggu from '../../assets/xianggu.png'
 import rice from '../../assets/rice.png'
 import swiper1 from '../../assets/swiper1.png'
 import swiper_left from '../../assets/swiper_left.png'
+import swiper_left1 from '../../assets/swiper_left1.png'
+import swiper_right1 from '../../assets/swiper_right1.png'
 import swiper_right from '../../assets/swiper_right.png'
 import video1 from '../../assets/video1.mp4'
 import video2 from '../../assets/video2.mp4'
+import tomato from '../../assets/tomato.png'
+import seefood from '../../assets/seefood.png'
 
 const Home = () => {
   const _step1 = useRef(null)
   const _step2 = useRef(null)
   const _step3 = useRef(null)
   const block = useRef(null)
-  const _bee = useRef(null)
-  // const [isInView, setIsInView] = useState(false)
+  const _tomato = useRef(null)
+  const _seefood = useRef(null)
+  const abouths__prev = useRef(null)
+  const abouths__next = useRef(null)
+  const fancy__prev = useRef(null)
+  const fancy__next = useRef(null)
 
   useEffect(() => {
     // 创建 IntersectionObserver 实例
@@ -59,12 +68,10 @@ const Home = () => {
           Array.from(entry.target.children).map((dom) => {
             dom.classList.add('show')
           })
-          // setIsInView(true)
         } else {
           Array.from(entry.target.children).map((dom) => {
             dom.classList.remove('show')
           })
-          // setIsInView(false)
         }
       })
     })
@@ -74,7 +81,8 @@ const Home = () => {
     if (_step2.current) observer.observe(_step2.current)
     if (_step3.current) observer.observe(_step3.current)
     if (block.current) observer.observe(block.current)
-    // if (_bee.current) observer.observe(_bee.current)
+    if (_tomato.current) observer.observe(_tomato.current)
+    if (_seefood.current) observer.observe(_seefood.current)
 
     // 清理工作
     return () => {
@@ -82,23 +90,10 @@ const Home = () => {
       if (_step2.current) observer.unobserve(_step2.current)
       if (_step3.current) observer.unobserve(_step3.current)
       if (block.current) observer.observe(block.current)
-      // if (_bee.current) observer.unobserve(_bee.current)
-      // window.removeEventListener('scroll', handleScroll)
+      if (_tomato.current) observer.unobserve(_tomato.current)
+      if (_seefood.current) observer.observe(_seefood.current)
     }
   }, [])
-
-  // // 处理滚动时动态更新元素的位置
-  // const handleScroll = () => {
-  //   const scrollOffset = window.scrollY
-  //   _bee.current.style.transform = `translateY(${scrollOffset / 10}px)`
-  // }
-
-  // useEffect(() => {
-  //   if (isInView) {
-  //     // 监听滚动事件
-  //     window.addEventListener('scroll', handleScroll)
-  //   }
-  // }, [isInView])
 
   // 返回顶部
   const backtotop = () => {
@@ -171,8 +166,57 @@ const Home = () => {
       {/* 花式菜谱 */}
       <div className="fancy" id="fancy">
         <img src={fancy__titlebg} className="fancy__titlebg" />
+        <div ref={_tomato} className="fancy__tomato">
+          <img src={tomato} />
+        </div>
+        <div ref={_seefood} className="fancy__seefood">
+          <img src={seefood} />
+        </div>
         <div className="fancy__title">花式菜谱</div>
         <div className="fancy__desc">使用各类食挑战多样咖喱食谱</div>
+        {/* 轮播 */}
+        <div className="fancy__swiperwrap">
+          <div className="fancy__swipercontainer">
+            <HsSwiper
+              slides={[swiper1, swiper1, swiper1]}
+              prevRef={fancy__prev}
+              nextRef={fancy__next}
+            ></HsSwiper>
+            <img
+              src={swiper_left1}
+              ref={fancy__prev}
+              className="fancy__prev"
+            ></img>
+            <img
+              src={swiper_right1}
+              ref={fancy__next}
+              className="fancy__next"
+            ></img>
+          </div>
+          <div className="swiper__tips">百梦多咖喱鸡肉饭</div>
+        </div>
+
+        {/* 轮播 */}
+        <div className="fancy__swiperwrap">
+          <div className="fancy__swipercontainer">
+            <HsSwiper
+              slides={[swiper1, swiper1, swiper1]}
+              prevRef={fancy__prev}
+              nextRef={fancy__next}
+            ></HsSwiper>
+            <img
+              src={swiper_left1}
+              ref={fancy__prev}
+              className="fancy__prev"
+            ></img>
+            <img
+              src={swiper_right1}
+              ref={fancy__next}
+              className="fancy__next"
+            ></img>
+          </div>
+          <div className="swiper__tips">百梦多咖喱鸡肉饭</div>
+        </div>
         <div className="btn fancy__more">
           <img src={btn__bg}></img>
           <img src={icon_right1} className="fancy__icon"></img>
@@ -188,7 +232,7 @@ const Home = () => {
         <img src={classroom__titlebg1} className="classroom__titlebg1" />
         <img src={classroom__titlebg2} className="classroom__titlebg2" />
         <div className="classroom__title">日式咖喱课堂</div>
-        <img src={bee2} className="classroom__bee" ref={_bee} />
+        <img src={bee2} className="classroom__bee" />
         <img src={coriander} className="classroom__coriander" />
         <img src={xianggu} className="classroom__xianggu" />
         <div className="classroom__content" ref={block}>
@@ -227,13 +271,13 @@ const Home = () => {
         <img src={aboutbmd__titlebg} className="aboutbmd__titlebg"></img>
         <div className="aboutbmd__title">关于百梦多</div>
         <img src={demo} className="aboutbmd__demo"></img>
-        <div className="showmodule" ref={_step1}>
+        <div ref={_step1}>
           <img src={step1} className="aboutbmd__step1"></img>
         </div>
-        <div className="showmodule" ref={_step2}>
+        <div ref={_step2}>
           <img src={step2} className="aboutbmd__step2"></img>
         </div>
-        <div className="showmodule" ref={_step3}>
+        <div ref={_step3}>
           <img src={step3} className="aboutbmd__step3"></img>
         </div>
         {/* 百梦多品牌宣传片 */}
@@ -254,15 +298,19 @@ const Home = () => {
         <div className="abouths__swipercontainer">
           <HsSwiper
             slides={[swiper1, swiper1, swiper1]}
-            Navi={() => {
-              return (
-                <>
-                  <img src={swiper_left} className="abouths__prev"></img>
-                  <img src={swiper_right} className="abouths__next"></img>
-                </>
-              )
-            }}
+            prevRef={abouths__prev}
+            nextRef={abouths__next}
           ></HsSwiper>
+          <img
+            src={swiper_left}
+            ref={abouths__prev}
+            className="abouths__prev"
+          ></img>
+          <img
+            src={swiper_right}
+            ref={abouths__next}
+            className="abouths__next"
+          ></img>
           <div className="swiper__tips">点击上方轻松了解更多活动哦~</div>
         </div>
         <div className="btn abouths__backhome">

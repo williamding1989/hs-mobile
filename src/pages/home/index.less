@@ -40,9 +40,7 @@
       width: 12%;
       top: 33%;
       transform: translateX(300%);
-      animation: trx0 forwards 1s ease-out
-      // animation: trx0 forwards 1s ease-out,
-      //   scalePulse 2s ease-in-out infinite 1s; /* 设置动画效果 */
+      animation: trx0 forwards 1s ease-out;
     }
     &__currcybox {
       position: absolute;
@@ -51,7 +49,6 @@
       top: 32%;
       transform: translateX(300%);
       animation: trx0 forwards 1s ease-out;
-      // animation: trx0 forwards 1s ease-out, currcybox 2.5s infinite linear 1s;
     }
 
     // 按钮区域
@@ -95,7 +92,7 @@
       font-size: 1.8rem;
       color: #5b391b;
       transform: translateY(-300%) rotateZ(-10deg);
-      animation: slogandown forwards 1s ease-out .8s;
+      animation: slogandown forwards 1s ease-out 0.8s;
     }
   }
 
@@ -163,10 +160,10 @@
   .fancy {
     position: relative;
     padding-top: 0.6rem;
-    padding-bottom: 1rem;
+    padding-bottom: 1.8rem;
     background-image: url('../../assets/fancy__bg.png');
     background-repeat: no-repeat;
-    background-size: 100%;
+    background-size: 100% 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -181,6 +178,26 @@
       width: 98%;
       margin-top: 3rem;
     }
+    &__tomato {
+      position: absolute;
+      width: 14%;
+      top: 52%;
+      left: 0%;
+      > img {
+        transform: translateX(-100%);
+        transition: all ease-in 0.5s;
+      }
+    }
+    &__seefood {
+      position: absolute;
+      width: 23%;
+      top: 83%;
+      right: 0;
+      > img {
+        transform: translateX(100%);
+        transition: all ease-in 0.5s;
+      }
+    }
     &__desc {
       font-weight: 300;
       font-size: 0.9rem;
@@ -194,6 +211,38 @@
       top: 50%;
       transform: translateY(-50%);
       width: 2rem;
+    }
+
+    &__swiperwrap {
+      width: 84%;
+      margin-bottom: 1.3rem;
+      .fancy__swipercontainer {
+        position: relative;
+        padding: 0.4rem;
+        background: #fff;
+        border-radius: 10px;
+      }
+      .swiper__tips {
+        font-weight: 400;
+        font-size: 1rem;
+        color: #5b391b;
+        text-align: center;
+        margin-top: 0.3rem;
+      }
+      .fancy__prev {
+        position: absolute;
+        width: 7%;
+        top: 41%;
+        z-index: 9;
+        left: -8%;
+      }
+      .fancy__next {
+        position: absolute;
+        width: 7%;
+        top: 41%;
+        z-index: 9;
+        right: -8%;
+      }
     }
 
     &__more {
@@ -353,7 +402,7 @@
         margin-top: 2.5rem;
       }
       .brand__videocontainer {
-        height: 11.5rem;
+        height: 13.5rem;
         border: 0.2rem solid #e60012;
         border-radius: 10px;
         padding: 0.8rem;
@@ -374,6 +423,11 @@
     &__step2 {
       transform: translateX(100%);
     }
+  }
+
+  // 空模块
+  .block {
+    margin-top: -1px;
   }
 
   // 波浪
@@ -458,7 +512,6 @@
   position: absolute;
   width: 9%;
   top: 41%;
-
   z-index: 9;
 }
 .abouths__prev {
