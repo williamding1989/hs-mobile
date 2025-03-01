@@ -49,6 +49,16 @@ import tomato from '../../assets/tomato.png'
 import seefood from '../../assets/seefood.png'
 import cassia from '../../assets/cassia.png'
 import poster2 from '../../assets/poster2.png'
+import curry1 from '../../assets/curry1.jpg'
+import curry2 from '../../assets/curry2.jpg'
+import curry3 from '../../assets/curry3.jpg'
+import curry4 from '../../assets/curry4.jpg'
+import curry5 from '../../assets/curry5.jpg'
+import curry6 from '../../assets/curry6.jpg'
+
+const homepage = 'https://www.housefoods.com.cn/'
+const currypage = 'https://www.housefoods.com.cn/index/curry/index'
+const recipepage = 'https://www.housefoods.com.cn/index/recipe/index.html'
 
 const Home = () => {
   const _step1 = useRef(null)
@@ -114,6 +124,11 @@ const Home = () => {
     window.scrollTo({
       top: 0,
     })
+
+  // 跳转
+  const jump = (link) => {
+    window.location.href = link
+  }
 
   return (
     <div className="Home">
@@ -191,7 +206,7 @@ const Home = () => {
         <div className="fancy__swiperwrap">
           <div className="fancy__swipercontainer">
             <HsSwiper
-              slides={[swiper1, swiper1, swiper1]}
+              slides={[curry1, curry2, curry3]}
               prevRef={fancy__prev1}
               nextRef={fancy__next1}
             ></HsSwiper>
@@ -213,7 +228,7 @@ const Home = () => {
         <div className="fancy__swiperwrap">
           <div className="fancy__swipercontainer">
             <HsSwiper
-              slides={[swiper1, swiper1, swiper1]}
+              slides={[curry4, curry5, curry6]}
               prevRef={fancy__prev2}
               nextRef={fancy__next2}
             ></HsSwiper>
@@ -230,7 +245,12 @@ const Home = () => {
           </div>
           <div className="swiper__tips">百梦多咖喱鸡肉饭</div>
         </div>
-        <div className="btn fancy__more">
+        <div
+          className="btn fancy__more"
+          onClick={() => {
+            jump(recipepage)
+          }}
+        >
           <img src={btn__bg}></img>
           <img src={icon_right1} className="fancy__icon"></img>
           <div className="btn__desc ">更多百梦多菜谱</div>
@@ -268,7 +288,12 @@ const Home = () => {
         <div className="classroom__ricewrap">
           <img src={rice} className="classroom__rice" />
         </div>
-        <div className="btn classroom__btn">
+        <div
+          className="btn classroom__btn"
+          onClick={() => {
+            jump(currypage)
+          }}
+        >
           <img src={btn__bg1}></img>
           <img src={icon_right} className="classroom__icon"></img>
           <div className="btn__desc ">成为咖喱达人吧</div>
@@ -325,7 +350,12 @@ const Home = () => {
           ></img>
           <div className="swiper__tips">点击上方轻松了解更多活动哦~</div>
         </div>
-        <div className="btn abouths__backhome">
+        <div
+          className="btn abouths__backhome"
+          onClick={() => {
+            jump(homepage)
+          }}
+        >
           <img src={btn__bg}></img>
           <div className="btn__desc ">进入官网首页</div>
         </div>

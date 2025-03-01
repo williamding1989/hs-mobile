@@ -46,10 +46,10 @@ const HsSwiper = ({ slides, prevRef, nextRef }) => {
         spaceBetween={0}
         slidesPerView={1}
         loop={true}
-        autoplay={{
-          delay: 2000,
-          disableOnInteraction: false, // 用户交互后不禁用自动播放
-        }}
+        // autoplay={{
+        //   delay: 2000,
+        //   disableOnInteraction: false, // 用户交互后不禁用自动播放
+        // }}
       >
         {slides.map((item, i) => {
           return (

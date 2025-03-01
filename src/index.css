@@ -29,6 +29,10 @@ a {
   }
 }
 
+.swiper-wrapper {
+  display: flex;
+  align-items: center;
+}
 .show {
   transform: translateX(0) !important;
 }
