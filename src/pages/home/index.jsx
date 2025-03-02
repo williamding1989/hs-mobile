@@ -55,6 +55,8 @@ import curry3 from '../../assets/curry3.jpg'
 import curry4 from '../../assets/curry4.jpg'
 import curry5 from '../../assets/curry5.jpg'
 import curry6 from '../../assets/curry6.jpg'
+import aboutbg1 from '../../assets/aboutbg1.jpg'
+import aboutbg2 from '../../assets/aboutbg2.jpg'
 
 const homepage = 'https://www.housefoods.com.cn/'
 const currypage = 'https://www.housefoods.com.cn/index/curry/index'
@@ -334,7 +336,7 @@ const Home = () => {
         {/* 轮播 */}
         <div className="abouths__swipercontainer">
           <HsSwiper
-            slides={[swiper1, swiper1, swiper1]}
+            slides={[aboutbg1, aboutbg2]}
             prevRef={abouths__prev}
             nextRef={abouths__next}
           ></HsSwiper>
