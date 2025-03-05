@@ -1,6 +1,7 @@
 // 模块
 import { useEffect, useRef, useState } from 'react'
 import { HsSwiper, HsVideo } from '../../components/index.jsx'
+import { curryMap1, curryMap2, aboutMap, pageMap } from './config.js'
 import './index.less'
 
 // 资源
@@ -29,7 +30,6 @@ import step1 from '../../assets/step1.png'
 import step2 from '../../assets/step2.png'
 import step3 from '../../assets/step3.png'
 import chickenrice__bg from '../../assets/chickenrice__bg.png'
-import chickenrice__desc from '../../assets/chickenrice__desc.png'
 import chickenrice__content from '../../assets/chickenrice.png'
 import fancy__titlebg from '../../assets/fancy__titlebg.png'
 import blockbg from '../../assets/block.png'
@@ -38,7 +38,6 @@ import totop from '../../assets/totop.png'
 import coriander from '../../assets/coriander.png'
 import xianggu from '../../assets/xianggu.png'
 import rice from '../../assets/rice.png'
-import swiper1 from '../../assets/swiper1.png'
 import swiper_left from '../../assets/swiper_left.png'
 import swiper_left1 from '../../assets/swiper_left1.png'
 import swiper_right1 from '../../assets/swiper_right1.png'
@@ -49,20 +48,11 @@ import tomato from '../../assets/tomato.png'
 import seefood from '../../assets/seefood.png'
 import cassia from '../../assets/cassia.png'
 import poster2 from '../../assets/poster2.png'
-import curry1 from '../../assets/curry1.jpg'
-import curry2 from '../../assets/curry2.jpg'
-import curry3 from '../../assets/curry3.jpg'
-import curry4 from '../../assets/curry4.jpg'
-import curry5 from '../../assets/curry5.jpg'
-import curry6 from '../../assets/curry6.jpg'
-import aboutbg1 from '../../assets/aboutbg1.jpg'
-import aboutbg2 from '../../assets/aboutbg2.jpg'
-
-const homepage = 'https://www.housefoods.com.cn/'
-const currypage = 'https://www.housefoods.com.cn/index/curry/index'
-const recipepage = 'https://www.housefoods.com.cn/index/recipe/index.html'
 
 const Home = () => {
+  const [active1, setActive1] = useState(0)
+  const [active2, setActive2] = useState(0)
+
   const _step1 = useRef(null)
   const _step2 = useRef(null)
   const _step3 = useRef(null)
@@ -186,7 +176,7 @@ const Home = () => {
 
         <div className="classic__chickenrice">
           <img src={chickenrice__bg} className="chickenrice__bg"></img>
-          <img src={chickenrice__desc} className="chickenrice__desc"></img>
+          <div className="chickenrice__desc">百梦多鸡肉咖喱饭</div>
           <div className="chickenrice__content">
             <HsVideo src={video1} poster={chickenrice__content}></HsVideo>
           </div>
@@ -208,9 +198,12 @@ const Home = () => {
         <div className="fancy__swiperwrap">
           <div className="fancy__swipercontainer">
             <HsSwiper
-              slides={[curry1, curry2, curry3]}
+              slides={curryMap1}
               prevRef={fancy__prev1}
               nextRef={fancy__next1}
+              onSlideChange={(i) => {
+                setActive1(i)
+              }}
             ></HsSwiper>
             <img
               src={swiper_left1}
@@ -223,16 +216,19 @@ const Home = () => {
               className="fancy__next"
             ></img>
           </div>
-          <div className="swiper__tips">百梦多咖喱鸡肉饭</div>
+          <div className="swiper__tips">{curryMap1[active1].desc}</div>
         </div>
 
         {/* 轮播 */}
         <div className="fancy__swiperwrap">
           <div className="fancy__swipercontainer">
             <HsSwiper
-              slides={[curry4, curry5, curry6]}
+              slides={curryMap2}
               prevRef={fancy__prev2}
               nextRef={fancy__next2}
+              onSlideChange={(i) => {
+                setActive2(i)
+              }}
             ></HsSwiper>
             <img
               src={swiper_left1}
@@ -245,12 +241,12 @@ const Home = () => {
               className="fancy__next"
             ></img>
           </div>
-          <div className="swiper__tips">百梦多咖喱鸡肉饭</div>
+          <div className="swiper__tips">{curryMap2[active2].desc}</div>
         </div>
         <div
           className="btn fancy__more"
           onClick={() => {
-            jump(recipepage)
+            jump(pageMap.recipepage)
           }}
         >
           <img src={btn__bg}></img>
@@ -293,7 +289,7 @@ const Home = () => {
         <div
           className="btn classroom__btn"
           onClick={() => {
-            jump(currypage)
+            jump(pageMap.currypage)
           }}
         >
           <img src={btn__bg1}></img>
@@ -336,7 +332,7 @@ const Home = () => {
         {/* 轮播 */}
         <div className="abouths__swipercontainer">
           <HsSwiper
-            slides={[aboutbg1, aboutbg2]}
+            slides={aboutMap}
             prevRef={abouths__prev}
             nextRef={abouths__next}
           ></HsSwiper>
@@ -355,7 +351,7 @@ const Home = () => {
         <div
           className="btn abouths__backhome"
           onClick={() => {
-            jump(homepage)
+            jump(pageMap.homepage)
           }}
         >
           <img src={btn__bg}></img>

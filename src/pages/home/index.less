@@ -1,3 +1,15 @@
+// Mobile
+@media only screen and (max-width: 800px) {
+}
+
+// Pad
+@media only screen and (min-width: 800px) and (max-width: 1250px) {
+}
+
+// Pc
+@media only screen and (min-width: 1250px) {
+}
+
 .Home {
   // banner
   .banner {
@@ -44,9 +56,9 @@
     }
     &__currcybox {
       position: absolute;
-      left: 7%;
-      width: 54%;
-      top: 32%;
+      left: 8%;
+      width: 50%;
+      top: 33%;
       transform: translateX(300%);
       animation: trx0 forwards 1s ease-out;
     }
@@ -66,6 +78,7 @@
         background-color: #e60012;
         border-radius: 10px;
         margin-bottom: 17px;
+        letter-spacing: 0.2rem;
         .list__title,
         .list__dsc {
           text-align: center;
@@ -139,11 +152,14 @@
     &__chickenrice {
       position: relative;
       .chickenrice__desc {
-        width: 50%;
         position: absolute;
-        top: 6%;
-        left: 50%;
-        transform: translateX(-50%);
+        top: 4%;
+        left: 0%;
+        width: 100%;
+        text-align: center;
+        font-weight: 400;
+        font-size: 1.7rem;
+        color: #e60012;
       }
       .chickenrice__content {
         width: 93%;

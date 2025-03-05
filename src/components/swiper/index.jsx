@@ -6,12 +6,13 @@ import { useEffect, useRef } from 'react'
 
 /**
  * 轮播组件
- * @param {Array}  slides 轮播数据
+ * @param {Array}  slides 轮播数据  { url ,desc ,link }
  * @param {ReactRef} prevRef 前箭头
- * @param {nextRef} nextRef 后箭头
+ * @param {ReactRef} nextRef 后箭头
+ * @param {Function} onSlideChange 滑动回调
  *
  */
-const HsSwiper = ({ slides, prevRef, nextRef }) => {
+const HsSwiper = ({ slides, prevRef, nextRef, onSlideChange }) => {
   const swiperRef = useRef(null)
 
   useEffect(() => {
@@ -37,6 +38,11 @@ const HsSwiper = ({ slides, prevRef, nextRef }) => {
     }
   }, [prevRef, nextRef])
 
+  const jump = (link) => {
+    if (!link) return
+    window.location.href = link
+  }
+
   return (
     <>
       {/* 轮播实体  */}
@@ -46,6 +52,9 @@ const HsSwiper = ({ slides, prevRef, nextRef }) => {
         spaceBetween={0}
         slidesPerView={1}
         loop={true}
+        onSlideChange={(swiper) => {
+          onSlideChange && onSlideChange(swiper.realIndex)
+        }}
         autoplay={{
           delay: 2000,
           disableOnInteraction: false, // 用户交互后不禁用自动播放
@@ -53,8 +62,8 @@ const HsSwiper = ({ slides, prevRef, nextRef }) => {
       >
         {slides.map((item, i) => {
           return (
-            <SwiperSlide key={i}>
-              <img src={item}></img>
+            <SwiperSlide key={i} onClick={() => jump(item.link)}>
+              <img src={item.url}></img>
             </SwiperSlide>
           )
         })}
