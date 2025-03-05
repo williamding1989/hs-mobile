@@ -1,27 +1,68 @@
 // Mobile
 @media only screen and (max-width: 800px) {
-}
-
-// Pad
-@media only screen and (min-width: 800px) and (max-width: 1024px) {
+  .Home {
+    .banner {
+      &__pcLogo {
+        display: none;
+      }
+      &__pcWine {
+        display: none;
+      }
+      &__pcBannercurry {
+        display: none;
+      }
+      &__pcCover {
+        display: none;
+      }
+    }
+  }
 }
 
 // Pc
-@media only screen and (min-width: 1024px) {
+@media only screen and (min-width: 800px) {
+  .play,
+  .pause {
+    width: 186px !important;
+  }
   .Home {
-    width: 1024px;
+    border: 1px solid red;
+    width: 1068px;
     .banner {
       height: 500px;
-      &__curryrice {
+      &__pcLogo {
         position: absolute;
-        bottom: 28%;
-        left: 0;
+        width: 200px;
+        top: 10px;
+        left: -220px;
+      }
+      &__pcWine {
+        position: absolute;
+        width: 287px;
+        bottom: 50px;
+        left: -290px;
+      }
+      &__pcBannercurry {
+        position: absolute;
+        width: 500px;
+        top: 0;
+        left: 100px;
+      }
+      &__pcCover {
+        position: absolute;
+        width: 500px;
+        top: 0;
+        left: 100px;
+      }
+      &__curryrice {
+        display: none;
+      }
+      &__bg {
+        display: none;
       }
       &__logo {
         width: 450px;
-        position: absolute;
-        top: 2%;
-        right: 0;
+        top: 86px !important;
+        left: 270px !important;
         animation: null !important;
       }
       &__line {
@@ -43,10 +84,76 @@
       &__slogan {
         display: none;
       }
+
+      // 按钮区域
+      &__guide {
+        bottom: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        flex-wrap: nowrap !important;
+        .active {
+          border-bottom: 4px solid #e60012 !important;
+        }
+        .guide__list {
+          padding: 10px 0 !important;
+          width: 17% !important;
+          background-color: transparent !important;
+          margin-bottom: 0 !important;
+          border-bottom: 4px solid #5b391b;
+          border-radius: 0 !important;
+          letter-spacing: 0 !important;
+          .list__title,
+          .list__dsc {
+            color: #222 !important;
+          }
+          .list__title {
+            font-size: 30px !important;
+          }
+          .list__dsc {
+            font-size: 24px !important;
+          }
+          &:last-child {
+            margin: initial !important;
+          }
+        }
+      }
+    }
+    .classic {
+      padding-top: 150px !important;
+      &__titlebg {
+        width: 626px !important;
+        top: 114px !important;
+      }
+      &__chocolate {
+        display: none;
+      }
+      &__title {
+        font-weight: 400 !important;
+        font-size: 72px !important;
+        color: #5b391b !important;
+      }
+      &__desc {
+        display: none;
+      }
+      &__bee {
+        width: 235px !important;
+        left: auto !important;
+        right: 0;
+        z-index: 1;
+      }
+      &__chickenrice {
+        .chickenrice__desc {
+          font-weight: 300 !important;
+          font-size: 72px !important;
+        }
+        .chickenrice__content {
+        }
+      }
     }
   }
 }
 
+// Common
 .Home {
   margin: 0 auto;
   // banner

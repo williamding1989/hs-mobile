@@ -1,6 +1,6 @@
 // 模块
 import { useEffect, useRef, useState } from 'react'
-import { HsSwiper, HsVideo } from '../../components/index.jsx'
+import { HsSwiper, HsVideo, HsLoading } from '../../components/index.jsx'
 import { curryMap1, curryMap2, aboutMap, pageMap } from './config.js'
 import './index.less'
 
@@ -48,10 +48,15 @@ import tomato from '../../assets/tomato.png'
 import seefood from '../../assets/seefood.png'
 import cassia from '../../assets/cassia.png'
 import poster2 from '../../assets/poster2.png'
+import pcLogo from '../../assets/pc-logo.png'
+import pcWine from '../../assets/pc-wine.png'
+import pcBannercurry from '../../assets/pc-bannercurry.jpg'
+import pcCover from '../../assets/pc-cover.png'
 
 const Home = () => {
   const [active1, setActive1] = useState(0)
   const [active2, setActive2] = useState(0)
+  const [stepShow, setStepShow] = useState(true)
 
   const _step1 = useRef(null)
   const _step2 = useRef(null)
@@ -68,6 +73,10 @@ const Home = () => {
   const fancy__next2 = useRef(null)
 
   useEffect(() => {
+    setTimeout(() => {
+      setStepShow(false)
+    }, 2500)
+
     // 创建 IntersectionObserver 实例
     const observer = new IntersectionObserver((entries, observer) => {
       entries.forEach((entry) => {
@@ -124,6 +133,8 @@ const Home = () => {
 
   return (
     <div className="Home">
+      {/* loading */}
+      <HsLoading show={stepShow}></HsLoading>
       {/* banner区域 */}
       <div className="banner">
         <img src={banner__bg} className="banner__bg"></img>
@@ -134,16 +145,19 @@ const Home = () => {
         <img src={spoon} className="banner__spoon"></img>
         <img src={zero} className="banner__zero"></img>
         <img src={currcybox} className="banner__currcybox"></img>
-
+        {/* pc */}
+        <img src={pcLogo} className="banner__pcLogo"></img>
+        <img src={pcWine} className="banner__pcWine"></img>
+        <img src={pcBannercurry} className="banner__pcBannercurry"></img>
+        <img src={pcCover} className="banner__pcCover"></img>
         {/* 宣传语 */}
         <div className="banner__slogan">
-          <div className="slogan__desc">大家很喜欢</div>
+          <div className="slogan__desc">全家都喜欢</div>
           <div className="slogan__desc">一盘超满足</div>
         </div>
-
         {/* 按钮区域 */}
         <div className="banner__guide">
-          <a className="guide__list" href="#classic">
+          <a className="guide__list active" href="#classic">
             <div className="list__title">经典菜谱</div>
             <div className="list__dsc">～新手必看～</div>
           </a>

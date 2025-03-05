@@ -12,17 +12,17 @@ export const curryMap1 = [
   {
     url: curry1,
     desc: '足球咖喱饭',
-    link: null,
+    link: 'https://www.housefoods.com.cn/index/Recipe/detail.html?id=735',
   },
   {
     url: curry2,
     desc: '南国风情虾仁咖喱饭',
-    link: null,
+    link: 'https://www.housefoods.com.cn/index/Recipe/detail.html?id=711',
   },
   {
     url: curry3,
     desc: '萌宠造型咖喱饭',
-    link: null,
+    link: 'https://www.housefoods.com.cn/index/Recipe/detail.html?id=746',
   },
 ]
 
@@ -31,17 +31,17 @@ export const curryMap2 = [
   {
     url: curry4,
     desc: '超浓郁苹果咖喱饭',
-    link: null,
+    link: 'https://www.housefoods.com.cn/index/Recipe/detail.html?id=749',
   },
   {
     url: curry5,
     desc: '时蔬秋葵豆腐咖喱饭',
-    link: null,
+    link: 'https://www.housefoods.com.cn/index/Recipe/detail.html?id=535',
   },
   {
     url: curry6,
     desc: '茄子时蔬鸡肉咖喱饭',
-    link: null,
+    link: 'https://www.housefoods.com.cn/index/Recipe/detail.html?id=533',
   },
 ]
 

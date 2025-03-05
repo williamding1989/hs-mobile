@@ -5,7 +5,7 @@ import 'swiper/less/navigation'
 import { useEffect, useRef } from 'react'
 
 /**
- * 轮播组件
+ * 轮播组件 https://www.npmjs.com/package/swiper
  * @param {Array}  slides 轮播数据  { url ,desc ,link }
  * @param {ReactRef} prevRef 前箭头
  * @param {ReactRef} nextRef 后箭头
@@ -63,7 +63,8 @@ const HsSwiper = ({ slides, prevRef, nextRef, onSlideChange }) => {
         {slides.map((item, i) => {
           return (
             <SwiperSlide key={i} onClick={() => jump(item.link)}>
-              <img src={item.url}></img>
+              <img src={item.url} loading="lazy"></img>
+              <div className="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
             </SwiperSlide>
           )
         })}
