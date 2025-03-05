@@ -2,11 +2,53 @@
 @media only screen and (max-width: 800px) {
 }
 
+// Pad
+@media only screen and (min-width: 800px) and (max-width: 1024px) {
+}
+
 // Pc
-@media only screen and (min-width: 800px) {
+@media only screen and (min-width: 1024px) {
+  .Home {
+    width: 1024px;
+    .banner {
+      height: 500px;
+      &__curryrice {
+        position: absolute;
+        bottom: 28%;
+        left: 0;
+      }
+      &__logo {
+        width: 450px;
+        position: absolute;
+        top: 2%;
+        right: 0;
+        animation: null !important;
+      }
+      &__line {
+        display: none;
+      }
+      &__fat {
+        display: none;
+      }
+      &__spoon {
+        display: none;
+      }
+
+      &__zero {
+        display: none;
+      }
+      &__currcybox {
+        display: none;
+      }
+      &__slogan {
+        display: none;
+      }
+    }
+  }
 }
 
 .Home {
+  margin: 0 auto;
   // banner
   .banner {
     position: relative;
@@ -159,7 +201,6 @@
       }
       .chickenrice__content {
         width: 93%;
-        height: 22rem;
         position: absolute;
         top: 14%;
         left: 50%;
@@ -421,7 +462,6 @@
         margin-top: 2.5rem;
       }
       .brand__videocontainer {
-        height: 12rem;
         border: 0.2rem solid #e60012;
         border-radius: 10px;
         padding: 0.8rem;
@@ -465,9 +505,6 @@
   // 关于好侍
   .abouths {
     position: relative;
-    &__bg {
-      height: 30rem;
-    }
     &__title {
       color: #691a09;
       position: absolute;
