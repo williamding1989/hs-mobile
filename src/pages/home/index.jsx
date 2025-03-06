@@ -419,6 +419,12 @@ const Home = () => {
           <div className="aboutbmd1__container">
             <img src={aboutbmd__titlebg} className="aboutbmd__titlebg"></img>
             <div className="aboutbmd__title">关于百梦多</div>
+            <div className="aboutbmd__advantage">
+              口味老少皆宜大人小孩都喜欢
+            </div>
+            <div className="aboutbmd__advantage">
+              满足全家各种需求轻松解决一餐所需
+            </div>
             <img src={demo} className="aboutbmd__demo"></img>
           </div>
         </div>
