@@ -32,9 +32,7 @@ const HsVideo = ({ src, poster }) => {
 
   return (
     <div className="videocontainer">
-      {isPlaying ? (
-        <img src={pause} className="pause" onClick={playVideo}></img>
-      ) : (
+      {isPlaying ? null : (
         <img src={play} className="play" onClick={playVideo}></img>
       )}
       <video poster={poster} ref={vdo} controls={ctr}>
