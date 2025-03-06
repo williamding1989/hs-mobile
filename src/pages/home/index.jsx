@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from 'react'
 import { HsSwiper, HsVideo, HsLoading } from '../../components/index.jsx'
 import { curryMap1, curryMap2, aboutMap, pageMap } from './config.js'
 import './index.less'
+import { isMobile } from '../../utils/index.js'
 
 // 资源
 import banner__bg from '../../assets/banner_bg.png'
@@ -50,13 +51,29 @@ import cassia from '../../assets/cassia.png'
 import poster2 from '../../assets/poster2.png'
 import pcLogo from '../../assets/pc-logo.png'
 import pcWine from '../../assets/pc-wine.png'
-import pcBannercurry from '../../assets/pc-bannercurry.jpg'
-import pcCover from '../../assets/pc-cover.png'
+import pcBannercurry from '../../assets/pc-bannercurry.png'
+import classicpc1 from '../../assets/classic-pc1.png'
+import classicpc2 from '../../assets/classic-pc2.png'
+import classicpc3 from '../../assets/classic-pc3.png'
+import classicpc4 from '../../assets/classic-pc4.png'
+import classicpc5 from '../../assets/classic-pc5.png'
+import classicpc6 from '../../assets/classic-pc6.png'
+import classicpc7 from '../../assets/classic-pc7.png'
+import classicpc8 from '../../assets/classic-pc8.png'
+import fancypc1 from '../../assets/fancy-pc1.png'
+import classroompc2 from '../../assets/classroom-pc2.png'
+import classroompc1 from '../../assets/classroom-pc1.png'
+import classroompc4 from '../../assets/classroom-pc4.png'
+import classroompc6 from '../../assets/classroom-pc6.png'
+import classroompc5 from '../../assets/classroom-pc5.png'
+import classroompc7 from '../../assets/classroom-pc7.png'
 
 const Home = () => {
   const [active1, setActive1] = useState(0)
   const [active2, setActive2] = useState(0)
   const [stepShow, setStepShow] = useState(true)
+  const [slidesPerView, setSlidesPerView] = useState(1)
+  const [navIndex, setNavIndex] = useState(0)
 
   const _step1 = useRef(null)
   const _step2 = useRef(null)
@@ -64,6 +81,7 @@ const Home = () => {
   const block = useRef(null)
   const _tomato = useRef(null)
   const _seefood = useRef(null)
+  const _fancypc1 = useRef(null)
 
   const abouths__prev = useRef(null)
   const abouths__next = useRef(null)
@@ -73,6 +91,8 @@ const Home = () => {
   const fancy__next2 = useRef(null)
 
   useEffect(() => {
+    slidesPerViewupdate()
+
     setTimeout(() => {
       setStepShow(false)
     }, 2500)
@@ -99,6 +119,10 @@ const Home = () => {
     observe(observer, block)
     observe(observer, _tomato)
     observe(observer, _seefood)
+    observe(observer, _fancypc1)
+
+    // 监听窗口大小变化
+    window.addEventListener('resize', slidesPerViewupdate)
 
     return () => {
       unobserve(observer, _step1)
@@ -107,6 +131,8 @@ const Home = () => {
       unobserve(observer, block)
       unobserve(observer, _tomato)
       unobserve(observer, _seefood)
+      unobserve(observer, _fancypc1)
+      window.removeEventListener('resize', slidesPerViewupdate)
     }
   }, [])
 
@@ -131,6 +157,14 @@ const Home = () => {
     window.location.href = link
   }
 
+  const slidesPerViewupdate = () => {
+    setSlidesPerView(isMobile() ? 1 : 3)
+  }
+
+  const switchNav = (i) => {
+    setNavIndex(i)
+  }
+
   return (
     <div className="Home">
       {/* loading */}
@@ -149,7 +183,6 @@ const Home = () => {
         <img src={pcLogo} className="banner__pcLogo"></img>
         <img src={pcWine} className="banner__pcWine"></img>
         <img src={pcBannercurry} className="banner__pcBannercurry"></img>
-        <img src={pcCover} className="banner__pcCover"></img>
         {/* 宣传语 */}
         <div className="banner__slogan">
           <div className="slogan__desc">全家都喜欢</div>
@@ -157,23 +190,43 @@ const Home = () => {
         </div>
         {/* 按钮区域 */}
         <div className="banner__guide">
-          <a className="guide__list active" href="#classic">
+          <a
+            className={`guide__list ${navIndex === 0 && 'active'}`}
+            href="#classic"
+            onClick={() => switchNav(0)}
+          >
             <div className="list__title">经典菜谱</div>
             <div className="list__dsc">～新手必看～</div>
           </a>
-          <a className="guide__list" href="#fancy">
+          <a
+            className={`guide__list ${navIndex === 1 && 'active'}`}
+            href="#fancy"
+            onClick={() => switchNav(1)}
+          >
             <div className="list__title">花式菜谱</div>
             <div className="list__dsc">～进阶必看～</div>
           </a>
-          <a className="guide__list" href="#classroom">
+          <a
+            className={`guide__list ${navIndex === 2 && 'active'}`}
+            href="#classroom"
+            onClick={() => switchNav(2)}
+          >
             <div className="list__title">日式咖喱课堂</div>
             <div className="list__dsc">～知识轻松学～</div>
           </a>
-          <a className="guide__list" href="#aboutbmd">
+          <a
+            className={`guide__list ${navIndex === 3 && 'active'}`}
+            href="#aboutbmd"
+            onClick={() => switchNav(3)}
+          >
             <div className="list__title">关于百梦多</div>
             <div className="list__dsc">～品牌大揭秘～</div>
           </a>
-          <a className="guide__list" href="#abouths">
+          <a
+            className={`guide__list ${navIndex === 4 && 'active'}`}
+            href="#abouths"
+            onClick={() => switchNav(4)}
+          >
             <div className="list__title">关于好侍</div>
             <div className="list__dsc">～活动全知晓～</div>
           </a>
@@ -185,11 +238,42 @@ const Home = () => {
         <img src={classic__titlebg} className="classic__titlebg"></img>
         <div className="classic__title">经典菜谱</div>
         <div className="classic__desc">制作简单 无需其他调料</div>
-        <img src={bee1} className="classic__bee"></img>
+
         <img src={chocolate} className="classic__chocolate"></img>
+        {/* pc */}
+        <img src={classicpc1} className="classic__classicpc1"></img>
 
         <div className="classic__chickenrice">
           <img src={chickenrice__bg} className="chickenrice__bg"></img>
+          <img src={bee1} className="classic__bee"></img>
+
+          {/* pc */}
+          <img src={classicpc2} className="classic__classicpc2"></img>
+          <img src={classicpc3} className="classic__classicpc3"></img>
+          <img src={classicpc4} className="classic__classicpc4"></img>
+          <img src={tomato} className="classic__tomato" />
+          <img src={classicpc8} className="classic__classicpc8"></img>
+
+          <div className="classic__classicpc6">
+            <img src={classicpc6}></img>
+            <div className="tips">
+              <div>「十分钟料理」</div>
+              <div>下班回家马上就能做好</div>
+              <div>很方便，再也不用吃外卖了</div>
+            </div>
+          </div>
+
+          <div className="classic__classicpc5">
+            <img src={classicpc5}></img>
+            <img src={classicpc7} className="classic__classicpc7"></img>
+
+            <div className="tips">
+              <div>「家常食材就能做一顿美味料理」</div>
+              <div>哪怕只有一菜一肉一锅</div>
+              <div>都能轻松制作一顿美味大餐</div>
+            </div>
+          </div>
+
           <div className="chickenrice__desc">百梦多鸡肉咖喱饭</div>
           <div className="chickenrice__content">
             <HsVideo src={video1} poster={chickenrice__content}></HsVideo>
@@ -206,6 +290,9 @@ const Home = () => {
         <div ref={_seefood} className="fancy__seefood">
           <img src={seefood} />
         </div>
+        <div ref={_fancypc1} className="fancy__fancypc1">
+          <img src={fancypc1} />
+        </div>
         <div className="fancy__title">花式菜谱</div>
         <div className="fancy__desc">使用各类食挑战多样咖喱食谱</div>
         {/* 轮播 */}
@@ -218,6 +305,7 @@ const Home = () => {
               onSlideChange={(i) => {
                 setActive1(i)
               }}
+              slidesPerView={slidesPerView}
               itemImg="radius10"
             ></HsSwiper>
             <img
@@ -233,7 +321,6 @@ const Home = () => {
           </div>
           <div className="swiper__tips">{curryMap1[active1].desc}</div>
         </div>
-
         {/* 轮播 */}
         <div className="fancy__swiperwrap">
           <div className="fancy__swipercontainer">
@@ -244,6 +331,7 @@ const Home = () => {
               onSlideChange={(i) => {
                 setActive2(i)
               }}
+              slidesPerView={slidesPerView}
               itemImg="radius10"
             ></HsSwiper>
             <img
@@ -266,7 +354,7 @@ const Home = () => {
           }}
         >
           <img src={btn__bg}></img>
-          <img src={icon_right1} className="fancy__icon"></img>
+          <img src={icon_right1} className="icon"></img>
           <div className="btn__desc ">更多百梦多菜谱</div>
         </div>
       </div>
@@ -283,6 +371,14 @@ const Home = () => {
         <img src={cassia} className="classroom__cassia" />
         <img src={coriander} className="classroom__coriander" />
         <img src={xianggu} className="classroom__xianggu" />
+        {/* pc */}
+        <img src={classroompc2} className="classroom__classroompc2" />
+        <img src={classroompc1} className="classroom__classroompc1" />
+        <img src={classroompc4} className="classroom__classroompc4" />
+        <img src={classroompc6} className="classroom__classroompc6" />
+        <img src={classroompc5} className="classroom__classroompc5" />
+        <img src={classroompc7} className="classroom__classroompc7" />
+
         <div className="classroom__content" ref={block}>
           <div className="content__block1 content__block">
             <div className="content__tips">咖喱从日本明治时代初期到现在</div>
@@ -309,7 +405,7 @@ const Home = () => {
           }}
         >
           <img src={btn__bg1}></img>
-          <img src={icon_right} className="classroom__icon"></img>
+          <img src={icon_right} className="icon"></img>
           <div className="btn__desc ">成为咖喱达人吧</div>
         </div>
       </div>
@@ -319,23 +415,31 @@ const Home = () => {
 
       {/* 关于百梦多 */}
       <div className="aboutbmd" id="aboutbmd">
-        <img src={aboutbmd__titlebg} className="aboutbmd__titlebg"></img>
-        <div className="aboutbmd__title">关于百梦多</div>
-        <img src={demo} className="aboutbmd__demo"></img>
-        <div ref={_step1}>
-          <img src={step1} className="aboutbmd__step1"></img>
+        <div className="aboutbmd1">
+          <div className="aboutbmd1__container">
+            <img src={aboutbmd__titlebg} className="aboutbmd__titlebg"></img>
+            <div className="aboutbmd__title">关于百梦多</div>
+            <img src={demo} className="aboutbmd__demo"></img>
+          </div>
         </div>
-        <div ref={_step2}>
-          <img src={step2} className="aboutbmd__step2"></img>
-        </div>
-        <div ref={_step3}>
-          <img src={step3} className="aboutbmd__step3"></img>
-        </div>
-        {/* 百梦多品牌宣传片 */}
-        <div className="aboutbmd__brand">
-          <div className="brand__title">百梦多品牌宣传片</div>
-          <div className="brand__videocontainer">
-            <HsVideo src={video2} poster={poster2}></HsVideo>
+        <div className="aboutbmd2">
+          <div className="aboutbmd2__container">
+            <div ref={_step1} className="stepcontainer">
+              <img src={step1} className="aboutbmd__step1"></img>
+            </div>
+            <div ref={_step2} className="stepcontainer">
+              <img src={step2} className="aboutbmd__step2"></img>
+            </div>
+            <div ref={_step3} className="stepcontainer">
+              <img src={step3} className="aboutbmd__step3"></img>
+            </div>
+            {/* 百梦多品牌宣传片 */}
+            <div className="aboutbmd__brand">
+              <div className="brand__title">百梦多品牌宣传片</div>
+              <div className="brand__videocontainer">
+                <HsVideo src={video2} poster={poster2}></HsVideo>
+              </div>
+            </div>
           </div>
         </div>
       </div>

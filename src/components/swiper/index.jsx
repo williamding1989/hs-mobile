@@ -13,7 +13,14 @@ import './index.less'
  * @param {Function} onSlideChange 滑动回调
  *
  */
-const HsSwiper = ({ slides, prevRef, nextRef, onSlideChange, itemImg }) => {
+const HsSwiper = ({
+  slides,
+  prevRef,
+  nextRef,
+  onSlideChange,
+  itemImg,
+  slidesPerView = 1,
+}) => {
   const swiperRef = useRef(null)
 
   useEffect(() => {
@@ -51,8 +58,8 @@ const HsSwiper = ({ slides, prevRef, nextRef, onSlideChange, itemImg }) => {
         className="HsSwiper"
         ref={swiperRef}
         modules={[Navigation, Autoplay]}
-        spaceBetween={0}
-        slidesPerView={1}
+        spaceBetween={30}
+        slidesPerView={slidesPerView}
         loop={true}
         onSlideChange={(swiper) => {
           onSlideChange && onSlideChange(swiper.realIndex)
