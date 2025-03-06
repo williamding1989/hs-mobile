@@ -75,7 +75,7 @@ const Home = () => {
   useEffect(() => {
     setTimeout(() => {
       setStepShow(false)
-    }, 2000)
+    }, 2500)
 
     // 创建 IntersectionObserver 实例
     const observer = new IntersectionObserver((entries, observer) => {
@@ -218,6 +218,7 @@ const Home = () => {
               onSlideChange={(i) => {
                 setActive1(i)
               }}
+              itemImg="radius10"
             ></HsSwiper>
             <img
               src={swiper_left1}
@@ -243,6 +244,7 @@ const Home = () => {
               onSlideChange={(i) => {
                 setActive2(i)
               }}
+              itemImg="radius10"
             ></HsSwiper>
             <img
               src={swiper_left1}

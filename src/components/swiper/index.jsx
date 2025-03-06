@@ -3,6 +3,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 import 'swiper/less/navigation'
 import { useEffect, useRef } from 'react'
+import './index.less'
 
 /**
  * 轮播组件 https://www.npmjs.com/package/swiper
@@ -12,7 +13,7 @@ import { useEffect, useRef } from 'react'
  * @param {Function} onSlideChange 滑动回调
  *
  */
-const HsSwiper = ({ slides, prevRef, nextRef, onSlideChange }) => {
+const HsSwiper = ({ slides, prevRef, nextRef, onSlideChange, itemImg }) => {
   const swiperRef = useRef(null)
 
   useEffect(() => {
@@ -47,6 +48,7 @@ const HsSwiper = ({ slides, prevRef, nextRef, onSlideChange }) => {
     <>
       {/* 轮播实体  */}
       <Swiper
+        className="HsSwiper"
         ref={swiperRef}
         modules={[Navigation, Autoplay]}
         spaceBetween={0}
@@ -62,8 +64,12 @@ const HsSwiper = ({ slides, prevRef, nextRef, onSlideChange }) => {
       >
         {slides.map((item, i) => {
           return (
-            <SwiperSlide key={i} onClick={() => jump(item.link)}>
-              <img src={item.url} loading="lazy"></img>
+            <SwiperSlide
+              className="slideItem"
+              key={i}
+              onClick={() => jump(item.link)}
+            >
+              <img className={itemImg} src={item.url} loading="lazy"></img>
               <div className="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
             </SwiperSlide>
           )
