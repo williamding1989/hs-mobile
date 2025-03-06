@@ -11,16 +11,21 @@ import pause from '../../assets/pause.png'
 const HsVideo = ({ src, poster }) => {
   const vdo = useRef(null)
   const [isPlaying, setIsPlaying] = useState(false)
+  const [ctr, setCtr] = useState(false)
 
   // 播放视频
   const playVideo = () => {
+    // 暂停
     if (isPlaying) {
       vdo.current.pause()
+      setCtr(false)
       return setIsPlaying(false)
     }
 
+    // 播放
     vdo.current.play()
     setIsPlaying(true)
+    setCtr(true)
   }
 
   if (!src) return null
@@ -32,7 +37,7 @@ const HsVideo = ({ src, poster }) => {
       ) : (
         <img src={play} className="play" onClick={playVideo}></img>
       )}
-      <video poster={poster} ref={vdo}>
+      <video poster={poster} ref={vdo} controls={ctr}>
         <source src={src} type="video/mp4"></source>
         <source src={src} type="video/ogg"></source>
       </video>

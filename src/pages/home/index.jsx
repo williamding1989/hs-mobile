@@ -75,7 +75,7 @@ const Home = () => {
   useEffect(() => {
     setTimeout(() => {
       setStepShow(false)
-    }, 2500)
+    }, 2000)
 
     // 创建 IntersectionObserver 实例
     const observer = new IntersectionObserver((entries, observer) => {
