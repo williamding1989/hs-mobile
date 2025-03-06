@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react'
-import steploading from '../../assets/steploading.png'
+import currcybox from '../../assets/currcybox.png'
 import './index.less'
 
 /**
@@ -10,7 +10,9 @@ const HsLoading = ({ show }) => {
   if (!show) return
   return (
     <div className="HsLoading">
-      <div className="stepContainer"></div>
+      <div className="stepContainer">
+        <img src={currcybox}></img>
+      </div>
     </div>
   )
 }

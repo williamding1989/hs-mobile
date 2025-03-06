@@ -11,22 +11,11 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background: url('../../assets/loadingbg.jpg') no-repeat;
+  background-size: 100% 100%;
+  background-color: #fff;
   .stepContainer {
-    width: 20rem;
-    height: 24rem;
-    background-image: url('../../assets/steploading.png'); /* 雪碧图路径 */
-    background-repeat: no-repeat;
-    background-position: 0 0; /* 初始位置 */
-    animation: step-animation 3s steps(22) infinite; /* 使用 steps() 实现阶跃动画 */
-  }
-}
-
-/* 定义阶跃动画 */
-@keyframes step-animation {
-  0% {
-    background-position: 0 0; /* 第一步 */
-  }
-  100% {
-    background-position: -6820px 0; /* 最后一步（假设雪碧图总宽度为 500px） */
+    width: 17rem;
+    animation: updown infinite linear 2s;
   }
 }
