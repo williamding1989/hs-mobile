@@ -74,6 +74,7 @@ const Home = () => {
   const [stepShow, setStepShow] = useState(true)
   const [slidesPerView, setSlidesPerView] = useState(1)
   const [navIndex, setNavIndex] = useState(0)
+  const [showDesc, setShowDesc] = useState(false)
 
   const _step1 = useRef(null)
   const _step2 = useRef(null)
@@ -100,7 +101,7 @@ const Home = () => {
   const fancy__next2 = useRef(null)
 
   useEffect(() => {
-    slidesPerViewupdate()
+    setter()
 
     setTimeout(() => {
       setStepShow(false)
@@ -140,7 +141,7 @@ const Home = () => {
     observe(observer, _aboutbmd__demo)
 
     // 监听窗口大小变化
-    window.addEventListener('resize', slidesPerViewupdate)
+    window.addEventListener('resize', setter)
 
     return () => {
       unobserve(observer, _step1)
@@ -160,7 +161,7 @@ const Home = () => {
       unobserve(observer, _classroom__classroompc4)
       unobserve(observer, _aboutbmd__demo)
 
-      window.removeEventListener('resize', slidesPerViewupdate)
+      window.removeEventListener('resize', setter)
     }
   }, [])
 
@@ -185,8 +186,9 @@ const Home = () => {
     window.location.href = link
   }
 
-  const slidesPerViewupdate = () => {
+  const setter = () => {
     setSlidesPerView(isMobile() ? 1 : 3)
+    setShowDesc(isMobile() ? false : true)
   }
 
   const switchNav = (i) => {
@@ -344,7 +346,7 @@ const Home = () => {
               }}
               slidesPerView={slidesPerView}
               itemImg="radius10"
-              // showDesc={true}
+              showDesc={showDesc}
             ></HsSwiper>
             <img
               src={swiper_left1}
@@ -371,7 +373,7 @@ const Home = () => {
               }}
               slidesPerView={slidesPerView}
               itemImg="radius10"
-              // showDesc={true}
+              showDesc={showDesc}
             ></HsSwiper>
             <img
               src={swiper_left1}

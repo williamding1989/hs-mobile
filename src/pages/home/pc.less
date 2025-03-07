@@ -334,9 +334,16 @@
         }
       }
       &__swiperwrap {
-        margin-bottom: 10px;
+        margin-bottom: 16px;
+        width: 98%;
         .fancy__swipercontainer {
-          max-height: 350px;
+          background: none;
+          max-height: 436px;
+          .swiper-slide {
+            img {
+              max-height: 340px;
+            }
+          }
           .fancy__prev,
           .fancy__next {
             display: none;
@@ -593,7 +600,12 @@
       &__swipercontainer {
         top: 260px;
         width: 1094px;
-        padding: 64px 36px;
+        padding: 54px 26px;
+        .swiper-slide {
+          img {
+            max-height: 740px;
+          }
+        }
         .swiper__tips {
           font-family: STYuanti-SC-Light, STYuanti-SC-Light;
           font-size: 23px;
@@ -608,7 +620,7 @@
       }
       &__backhome {
         top: auto;
-        bottom: 180px;
+        bottom: 4%;
       }
     }
   }

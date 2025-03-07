@@ -77,8 +77,10 @@ const HsSwiper = ({
               key={i}
               onClick={() => jump(item.link)}
             >
-              <img className={itemImg} src={item.url} loading="lazy"></img>
-              <div className="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+              <div className="slideContainer">
+                <img className={itemImg} src={item.url} loading="lazy"></img>
+                <div className="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+              </div>
               {showDesc && <div className="slideDesc">{item.desc}</div>}
             </SwiperSlide>
           )
