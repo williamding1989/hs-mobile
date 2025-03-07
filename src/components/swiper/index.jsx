@@ -20,6 +20,7 @@ const HsSwiper = ({
   onSlideChange,
   itemImg,
   slidesPerView = 1,
+  showDesc = false,
 }) => {
   const swiperRef = useRef(null)
 
@@ -78,6 +79,7 @@ const HsSwiper = ({
             >
               <img className={itemImg} src={item.url} loading="lazy"></img>
               <div className="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+              {showDesc && <div className="slideDesc">{item.desc}</div>}
             </SwiperSlide>
           )
         })}

@@ -58,6 +58,8 @@
         bottom: 88px;
         left: -20%;
         width: 32vw;
+        transform: translateX(-100%);
+        animation: trx0 forwards 1s ease-out 2s;
       }
       &__pcBannercurry {
         position: absolute;
@@ -78,9 +80,11 @@
         right: -175px;
         animation: null;
         z-index: 3;
-        transform: translate(0, -50%);
+        transform: translate(200px, -50%);
         left: auto;
         top: 50%;
+        .trs(0,-50%);
+        animation: trs forwards 1s ease-out 2s;
       }
       &__line {
         display: none;
@@ -169,7 +173,7 @@
         width: 176px;
         left: auto;
         right: -49px;
-        z-index: 1;
+        z-index: 4;
         top: -55px;
       }
       &__classicpc1 {
@@ -183,6 +187,9 @@
         left: -204px;
         bottom: 88px;
         width: 131px;
+        > img {
+          .transition(-200px);
+        }
       }
       &__classicpc3 {
         position: absolute;
@@ -195,6 +202,9 @@
         right: -335px;
         top: 127px;
         width: 143px;
+        > img {
+          .transition(200px);
+        }
       }
 
       &__tomato {
@@ -202,6 +212,9 @@
         right: -222px;
         top: 254px;
         width: 141px;
+        > img {
+          .transition(200px);
+        }
       }
       &__classicpc7 {
         position: absolute;
@@ -216,10 +229,17 @@
         bottom: -226px;
         width: 688px;
         opacity: 0.7;
+        > img {
+          .transition(0,-250px);
+        }
       }
       &__classicpc5 {
         left: -350px;
         top: 353px;
+        > img,
+        .tips {
+          .transition(-200px);
+        }
         .tips {
           top: 96px;
           left: -2px;
@@ -228,6 +248,10 @@
       &__classicpc6 {
         right: -350px;
         top: 473px;
+        > img,
+        .tips {
+          .transition(200px);
+        }
         .tips {
           top: 78px;
           left: 0px;
@@ -312,7 +336,6 @@
       &__swiperwrap {
         margin-bottom: 10px;
         .fancy__swipercontainer {
-          height: initial;
           max-height: 350px;
           .fancy__prev,
           .fancy__next {
@@ -417,6 +440,9 @@
         width: 258px;
         left: -70px;
         bottom: 106px;
+        > img {
+          .transition(0,-250px);
+        }
       }
 
       &__classroompc6 {
@@ -424,6 +450,9 @@
         width: 214px;
         right: -25px;
         top: 289px;
+        > img {
+          .transition(0,250px);
+        }
       }
       &__classroompc5 {
         position: absolute;
@@ -508,6 +537,9 @@
           .aboutbmd__demo {
             width: 760px;
             margin: 0 auto;
+            > img {
+              .transition(0,200px);
+            }
           }
         }
       }
@@ -517,6 +549,8 @@
         margin-left: calc(-50vw + 570px);
         background-image: url('../../assets/aboutbmd-pc1.png');
         padding-bottom: 115px;
+        background-size: cover;
+        background-repeat: no-repeat;
         &__container {
           width: 767px;
           display: flex;

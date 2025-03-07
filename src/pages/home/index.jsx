@@ -82,6 +82,15 @@ const Home = () => {
   const _tomato = useRef(null)
   const _seefood = useRef(null)
   const _fancypc1 = useRef(null)
+  const _classic__classicpc4 = useRef(null)
+  const _classic__tomato = useRef(null)
+  const _classic__classicpc2 = useRef(null)
+  const _classic__classicpc6 = useRef(null)
+  const _classic__classicpc5 = useRef(null)
+  const _classic__classicpc8 = useRef(null)
+  const _classroom__classroompc6 = useRef(null)
+  const _classroom__classroompc4 = useRef(null)
+  const _aboutbmd__demo = useRef(null)
 
   const abouths__prev = useRef(null)
   const abouths__next = useRef(null)
@@ -120,6 +129,15 @@ const Home = () => {
     observe(observer, _tomato)
     observe(observer, _seefood)
     observe(observer, _fancypc1)
+    observe(observer, _classic__classicpc2)
+    observe(observer, _classic__classicpc4)
+    observe(observer, _classic__classicpc6)
+    observe(observer, _classic__classicpc5)
+    observe(observer, _classic__classicpc8)
+    observe(observer, _classic__tomato)
+    observe(observer, _classroom__classroompc6)
+    observe(observer, _classroom__classroompc4)
+    observe(observer, _aboutbmd__demo)
 
     // 监听窗口大小变化
     window.addEventListener('resize', slidesPerViewupdate)
@@ -132,6 +150,16 @@ const Home = () => {
       unobserve(observer, _tomato)
       unobserve(observer, _seefood)
       unobserve(observer, _fancypc1)
+      unobserve(observer, _classic__classicpc2)
+      unobserve(observer, _classic__classicpc4)
+      unobserve(observer, _classic__classicpc6)
+      unobserve(observer, _classic__classicpc5)
+      unobserve(observer, _classic__classicpc8)
+      unobserve(observer, _classic__tomato)
+      unobserve(observer, _classroom__classroompc6)
+      unobserve(observer, _classroom__classroompc4)
+      unobserve(observer, _aboutbmd__demo)
+
       window.removeEventListener('resize', slidesPerViewupdate)
     }
   }, [])
@@ -193,7 +221,7 @@ const Home = () => {
           <a
             className={`guide__list ${navIndex === 0 && 'active'}`}
             href="#classic"
-            onClick={() => switchNav(0)}
+            onMouseMove={() => switchNav(0)}
           >
             <div className="list__title">经典菜谱</div>
             <div className="list__dsc">～新手必看～</div>
@@ -201,7 +229,7 @@ const Home = () => {
           <a
             className={`guide__list ${navIndex === 1 && 'active'}`}
             href="#fancy"
-            onClick={() => switchNav(1)}
+            onMouseMove={() => switchNav(1)}
           >
             <div className="list__title">花式菜谱</div>
             <div className="list__dsc">～进阶必看～</div>
@@ -209,7 +237,7 @@ const Home = () => {
           <a
             className={`guide__list ${navIndex === 2 && 'active'}`}
             href="#classroom"
-            onClick={() => switchNav(2)}
+            onMouseMove={() => switchNav(2)}
           >
             <div className="list__title">日式咖喱课堂</div>
             <div className="list__dsc">～知识轻松学～</div>
@@ -217,7 +245,7 @@ const Home = () => {
           <a
             className={`guide__list ${navIndex === 3 && 'active'}`}
             href="#aboutbmd"
-            onClick={() => switchNav(3)}
+            onMouseMove={() => switchNav(3)}
           >
             <div className="list__title">关于百梦多</div>
             <div className="list__dsc">～品牌大揭秘～</div>
@@ -225,7 +253,7 @@ const Home = () => {
           <a
             className={`guide__list ${navIndex === 4 && 'active'}`}
             href="#abouths"
-            onClick={() => switchNav(4)}
+            onMouseMove={() => switchNav(4)}
           >
             <div className="list__title">关于好侍</div>
             <div className="list__dsc">～活动全知晓～</div>
@@ -248,13 +276,23 @@ const Home = () => {
           <img src={bee1} className="classic__bee"></img>
 
           {/* pc */}
-          <img src={classicpc2} className="classic__classicpc2"></img>
+          <div ref={_classic__classicpc2} className="classic__classicpc2">
+            <img src={classicpc2}></img>
+          </div>
           <img src={classicpc3} className="classic__classicpc3"></img>
-          <img src={classicpc4} className="classic__classicpc4"></img>
-          <img src={tomato} className="classic__tomato" />
-          <img src={classicpc8} className="classic__classicpc8"></img>
 
-          <div className="classic__classicpc6">
+          <div ref={_classic__classicpc8} className="classic__classicpc8">
+            <img src={classicpc8}></img>
+          </div>
+
+          <div ref={_classic__classicpc4} className="classic__classicpc4">
+            <img src={classicpc4}></img>
+          </div>
+          <div ref={_classic__tomato} className="classic__tomato">
+            <img src={tomato} />
+          </div>
+
+          <div ref={_classic__classicpc6} className="classic__classicpc6">
             <img src={classicpc6}></img>
             <div className="tips">
               <div>「十分钟料理」</div>
@@ -263,10 +301,9 @@ const Home = () => {
             </div>
           </div>
 
-          <div className="classic__classicpc5">
+          <div ref={_classic__classicpc5} className="classic__classicpc5">
             <img src={classicpc5}></img>
             <img src={classicpc7} className="classic__classicpc7"></img>
-
             <div className="tips">
               <div>「家常食材就能做一顿美味料理」</div>
               <div>哪怕只有一菜一肉一锅</div>
@@ -307,6 +344,7 @@ const Home = () => {
               }}
               slidesPerView={slidesPerView}
               itemImg="radius10"
+              // showDesc={true}
             ></HsSwiper>
             <img
               src={swiper_left1}
@@ -333,6 +371,7 @@ const Home = () => {
               }}
               slidesPerView={slidesPerView}
               itemImg="radius10"
+              // showDesc={true}
             ></HsSwiper>
             <img
               src={swiper_left1}
@@ -374,8 +413,15 @@ const Home = () => {
         {/* pc */}
         <img src={classroompc2} className="classroom__classroompc2" />
         <img src={classroompc1} className="classroom__classroompc1" />
-        <img src={classroompc4} className="classroom__classroompc4" />
-        <img src={classroompc6} className="classroom__classroompc6" />
+
+        <div ref={_classroom__classroompc4} className="classroom__classroompc4">
+          <img src={classroompc4} />
+        </div>
+
+        <div ref={_classroom__classroompc6} className="classroom__classroompc6">
+          <img src={classroompc6} />
+        </div>
+
         <img src={classroompc5} className="classroom__classroompc5" />
         <img src={classroompc7} className="classroom__classroompc7" />
 
@@ -425,7 +471,10 @@ const Home = () => {
             <div className="aboutbmd__advantage">
               满足全家各种需求轻松解决一餐所需
             </div>
-            <img src={demo} className="aboutbmd__demo"></img>
+
+            <div ref={_aboutbmd__demo} className="aboutbmd__demo">
+              <img src={demo}></img>
+            </div>
           </div>
         </div>
         <div className="aboutbmd2">

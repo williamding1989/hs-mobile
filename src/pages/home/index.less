@@ -14,7 +14,7 @@
     }
     &__logo {
       position: absolute;
-      top: 2%;
+      top: 6%;
       left: 0;
       transform: translateX(100%);
       animation: trx0 forwards 1s ease-out 2s;
@@ -608,4 +608,17 @@
   100% {
     transform: translateX(0);
   }
+}
+
+.trs(@x:0,@y:0) {
+  @keyframes trs {
+    100% {
+      transform: translate(@x, @y);
+    }
+  }
+}
+
+.transition(@x,@y:0) {
+  transform: translate(@x, @y);
+  transition: all ease-in 0.5s;
 }
