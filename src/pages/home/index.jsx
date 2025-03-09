@@ -345,7 +345,6 @@ const Home = () => {
                 setActive1(i)
               }}
               slidesPerView={slidesPerView}
-              itemImg="radius10"
               showDesc={showDesc}
             ></HsSwiper>
             <img
@@ -372,7 +371,6 @@ const Home = () => {
                 setActive2(i)
               }}
               slidesPerView={slidesPerView}
-              itemImg="radius10"
               showDesc={showDesc}
             ></HsSwiper>
             <img

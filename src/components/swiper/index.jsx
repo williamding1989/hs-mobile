@@ -18,9 +18,8 @@ const HsSwiper = ({
   prevRef,
   nextRef,
   onSlideChange,
-  itemImg,
-  slidesPerView = 1,
   showDesc = false,
+  ...props
 }) => {
   const swiperRef = useRef(null)
 
@@ -60,7 +59,6 @@ const HsSwiper = ({
         ref={swiperRef}
         modules={[Navigation, Autoplay]}
         spaceBetween={30}
-        slidesPerView={slidesPerView}
         loop={true}
         onSlideChange={(swiper) => {
           onSlideChange && onSlideChange(swiper.realIndex)
@@ -69,6 +67,7 @@ const HsSwiper = ({
           delay: 2000,
           disableOnInteraction: false, // 用户交互后不禁用自动播放
         }}
+        {...props}
       >
         {slides.map((item, i) => {
           return (
@@ -78,7 +77,7 @@ const HsSwiper = ({
               onClick={() => jump(item.link)}
             >
               <div className="slideContainer">
-                <img className={itemImg} src={item.url} loading="lazy"></img>
+                <img src={item.url} loading="lazy"></img>
                 <div className="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
               </div>
               {showDesc && <div className="slideDesc">{item.desc}</div>}
