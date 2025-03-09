@@ -101,7 +101,7 @@ const Home = () => {
   const fancy__next2 = useRef(null)
 
   useEffect(() => {
-    setter()
+    adapter()
 
     setTimeout(() => {
       setStepShow(false)
@@ -141,7 +141,7 @@ const Home = () => {
     observe(observer, _aboutbmd__demo)
 
     // 监听窗口大小变化
-    window.addEventListener('resize', setter)
+    window.addEventListener('resize', adapter)
 
     return () => {
       unobserve(observer, _step1)
@@ -161,7 +161,7 @@ const Home = () => {
       unobserve(observer, _classroom__classroompc4)
       unobserve(observer, _aboutbmd__demo)
 
-      window.removeEventListener('resize', setter)
+      window.removeEventListener('resize', adapter)
     }
   }, [])
 
@@ -186,11 +186,13 @@ const Home = () => {
     window.location.href = link
   }
 
-  const setter = () => {
+  // 适配器
+  const adapter = () => {
     setSlidesPerView(isMobile() ? 1 : 3)
     setShowDesc(isMobile() ? false : true)
   }
 
+  // 导航切换
   const switchNav = (i) => {
     setNavIndex(i)
   }
