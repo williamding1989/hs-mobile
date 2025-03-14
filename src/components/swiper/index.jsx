@@ -64,7 +64,7 @@ const HsSwiper = ({
           onSlideChange && onSlideChange(swiper.realIndex)
         }}
         autoplay={{
-          delay: 2000,
+          delay: 5500,
           disableOnInteraction: false, // 用户交互后不禁用自动播放
         }}
         {...props}
