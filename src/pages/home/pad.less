@@ -1,6 +1,6 @@
-// Pc
-@media only screen and (min-width: 1200px) {
-  @containerW: 1140px;
+// Pad
+@media only screen and (min-width: 768px) and (max-width: 1199px) {
+  @containerW: 100%;
   div.HsLoading {
     .stepContainer {
       width: 500px;
@@ -27,7 +27,7 @@
     width: 385px;
     cursor: pointer;
     &__desc {
-      font-size: 28px;
+      font-size: 24px;
     }
     .icon {
       width: 50px;
@@ -45,20 +45,20 @@
       display: none;
     }
     .banner {
-      height: 700px;
+      height: 600px;
       &__pcLogo {
         position: absolute;
         max-width: 344px;
         top: 34px;
-        left: -14%;
-        width: 16vw;
+        left: 0%;
+        width: 14vw;
       }
       &__pcWine {
         position: absolute;
         max-width: 485px;
         bottom: 88px;
-        left: -20%;
-        width: 32vw;
+        left: -10%;
+        width: 28vw;
         transform: translateX(-100%);
         animation: trx0 forwards 1s ease-out 2s;
       }
@@ -67,7 +67,7 @@
         max-width: 1060px;
         top: -24vw;
         left: 19%;
-        width: 71vw;
+        width: 64vw;
       }
       &__curryrice {
         display: none;
@@ -76,9 +76,9 @@
         display: none;
       }
       &__logo {
-        width: 42vw;
+        width: 38vw;
         max-width: 674px;
-        right: -175px;
+        right: 0%;
         animation: null;
         z-index: 3;
         transform: translate(200px, -50%);
@@ -134,10 +134,10 @@
             color: #5b391b;
           }
           div.list__title {
-            font-size: 22px;
+            font-size: 18px;
           }
           div.list__dsc {
-            font-size: 18px;
+            font-size: 14px;
           }
           &:last-child {
             margin: initial !important;
@@ -149,7 +149,7 @@
       width: 100vw;
       margin-left: calc(-50vw + @containerW / 2);
       padding-top: 230px;
-      height: 1300px;
+      height: 1200px;
       background-image: url(../../assets/abouths__bg.png);
       &__titlebg {
         width: 470px;
@@ -161,7 +161,7 @@
       }
       &__title {
         font-weight: 400;
-        font-size: 54px;
+        font-size: 50px;
         color: #5b391b;
         padding: 0;
         position: relative;
@@ -265,7 +265,7 @@
         .tips {
           width: 100%;
           position: absolute;
-          font-size: 18px;
+          font-size: 14px;
           font-weight: 400;
           line-height: 31px;
           color: #5b391b;
@@ -276,14 +276,14 @@
       }
 
       &__chickenrice {
-        width: 790px;
+        width: 50%;
         margin: 50px auto 0;
         .chickenrice__content {
           z-index: 3;
         }
         .chickenrice__desc {
           font-weight: bold;
-          font-size: 54px;
+          font-size: 50px;
         }
       }
     }
@@ -301,13 +301,13 @@
       }
       &__title {
         color: #5b391b;
-        font-size: 54px;
+        font-size: 50px;
         margin-top: -81px;
         line-height: 95px;
         margin-bottom: 0;
       }
       &__desc {
-        font-size: 18px;
+        font-size: 14px;
         color: #5b391b;
         line-height: 31px;
         margin-bottom: 60px;
@@ -396,7 +396,7 @@
       }
       &__title {
         margin-top: -155px;
-        font-size: 54px;
+        font-size: 50px;
         color: #5b391b;
       }
       &__bee {
@@ -481,7 +481,7 @@
         margin-top: 40px;
         .content__block {
           .content__tips {
-            font-size: 18px;
+            font-size: 14px;
             line-height: 32px;
           }
         }
@@ -511,7 +511,7 @@
       padding-bottom: 0;
       background: none;
       &__advantage {
-        font-size: 23px;
+        font-size: 19px;
         color: #5b391b;
         line-height: 40px;
         text-align: center;
@@ -537,7 +537,7 @@
             top: 48px;
           }
           .aboutbmd__title {
-            font-size: 54px;
+            font-size: 50px;
             color: #691a09;
             padding-top: 88px;
             padding-bottom: 29px;
@@ -570,7 +570,7 @@
           }
           .aboutbmd__brand {
             .brand__title {
-              font-size: 54px;
+              font-size: 50px;
               line-height: 94px;
               margin-top: 80px;
               padding: 15px 0;
@@ -583,7 +583,7 @@
       }
     }
     .abouths {
-      height: 1343px;
+      height: 1143px;
       width: 100vw;
       margin-left: calc(-50vw + @containerW / 2);
       background-image: url('../../assets/abouths__bg.png');
@@ -595,12 +595,12 @@
         top: 62px;
       }
       &__title {
-        font-size: 54px;
+        font-size: 50px;
         top: 114px;
       }
       &__swipercontainer {
         top: 260px;
-        width: 1094px;
+        width: 90%;
         padding: 54px 26px;
         .swiper-slide {
           img {
@@ -609,7 +609,7 @@
         }
         .swiper__tips {
           font-family: STYuanti-SC-Light, STYuanti-SC-Light;
-          font-size: 23px;
+          font-size: 19px;
           color: #5b391b;
           bottom: 16px;
         }

@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from 'react'
 import { HsSwiper, HsVideo, HsLoading } from '../../components/index.jsx'
 import { curryMap1, curryMap2, aboutMap, pageMap } from './config.js'
 import './index.less'
-import { isMobile } from '../../utils/index.js'
+import { device } from '../../utils/index.js'
 
 // 资源
 import banner__bg from '../../assets/banner_bg.png'
@@ -188,8 +188,20 @@ const Home = () => {
 
   // 适配器
   const adapter = () => {
-    setSlidesPerView(isMobile() ? 1 : 3)
-    setShowDesc(isMobile() ? false : true)
+    switch (device()) {
+      case 1:
+        setSlidesPerView(1)
+        setShowDesc(false)
+        break
+      case 2:
+        setSlidesPerView(2)
+        setShowDesc(true)
+        break
+      case 3:
+        setSlidesPerView(3)
+        setShowDesc(true)
+        break
+    }
   }
 
   // 导航切换
